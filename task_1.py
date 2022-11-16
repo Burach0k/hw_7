@@ -1,13 +1,14 @@
 def dishe_item_map(item):
     item_info = list(map(lambda info: info.strip(), item.split('|')))
 
-    if len(item_info) < 3: return { }
+    if len(item_info) < 3: return {}
 
     return {
         'ingredient_name': item_info[0],
         'quantity': int(item_info[1]),
         'measure': item_info[2]
     }
+
 
 def parse_dishe(dishe_item_list):
     if len(dishe_item_list) < 3: return {}
@@ -16,6 +17,7 @@ def parse_dishe(dishe_item_list):
     dishe_items = list(map(dishe_item_map, dishe_item_list[2:]))
 
     return dishe_name, dishe_items
+
 
 def create_cook_book(file_path):
     cook_book = {}
